@@ -1,10 +1,10 @@
 # This sample tests the interplay between unbound symbol detection and
 # the code that handles conditional narrowing of captured variables.
 
-from random import random
+import secrets
 
 
-if random() > 0.5:
+if secrets.SystemRandom().random() > 0.5:
     from datetime import datetime
     from math import cos
 

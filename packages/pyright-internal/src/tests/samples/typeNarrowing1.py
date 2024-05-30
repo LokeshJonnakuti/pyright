@@ -3,7 +3,7 @@
 
 # pyright: reportOptionalMemberAccess=false
 
-from random import random
+import secrets
 
 
 class ClassA:
@@ -62,7 +62,7 @@ def func1(a: str, b: str | bool) -> bool:
     x: str | bool = a and a in []
     reveal_type(x, expected_text="bool | Literal['']")
 
-    if random() > 0.5:
+    if secrets.SystemRandom().random() > 0.5:
         return (a and a in [""]) or True
     else:
         return x or True
