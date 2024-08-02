@@ -13,8 +13,8 @@ def make_api_request(auth: str) -> str:
 
 
 def func1() -> None:
-    resp = open("test")
-    auth = resp.read()
+    with open("test") as resp:
+        auth = resp.read()
 
     def build_req():
         # "auth" is declared in a different execution context
