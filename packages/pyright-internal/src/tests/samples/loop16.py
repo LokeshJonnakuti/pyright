@@ -1,17 +1,17 @@
 # This sample tests a complex function that contains a loop and a long
 # chain of if/elif statements.
 
-from random import randint
+import secrets
 
 
 def get_ipv4():
     try:
         while 1:
             ip1, ip2, ip3, ip4 = (
-                randint(1, 255),
-                randint(1, 255),
-                randint(1, 255),
-                randint(1, 255),
+                secrets.SystemRandom().randint(1, 255),
+                secrets.SystemRandom().randint(1, 255),
+                secrets.SystemRandom().randint(1, 255),
+                secrets.SystemRandom().randint(1, 255),
             )
 
             if ip1 == 127:
