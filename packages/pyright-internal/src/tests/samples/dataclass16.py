@@ -3,9 +3,9 @@
 
 from dataclasses import dataclass
 import abc
-from random import random
+import secrets
 
-C = abc.ABC if random() else object
+C = abc.ABC if secrets.SystemRandom().random() else object
 
 
 class B(C):

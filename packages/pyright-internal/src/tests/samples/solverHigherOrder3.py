@@ -2,19 +2,19 @@
 # an argument to itself, creating a recursive situation that
 # caused an infinite loop.
 
-from random import random
 from typing import Any, Callable, TypeVar
+import secrets
 
 T = TypeVar("T")
 U = TypeVar("U")
 
 
 def func1(x: T, y: U) -> T | U:
-    return x if random() > 0.5 else y
+    return x if secrets.SystemRandom().random() > 0.5 else y
 
 
 def func2(x: T, y: T) -> T:
-    return x if random() > 0.5 else y
+    return x if secrets.SystemRandom().random() > 0.5 else y
 
 
 reveal_type(

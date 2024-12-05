@@ -1,7 +1,7 @@
 # This sample tests type narrowing for the "in" operator.
 
 from typing import Literal, TypedDict
-import random
+import secrets
 
 
 def verify_str(p: str) -> None:
@@ -18,7 +18,7 @@ def verify_none(p: None) -> None:
 
 x: str | None
 y: int | str
-if random.random() < 0.5:
+if secrets.SystemRandom().random() < 0.5:
     x = None
     y = 1
 else:
