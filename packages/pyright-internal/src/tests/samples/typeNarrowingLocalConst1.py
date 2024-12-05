@@ -3,7 +3,7 @@
 # These are sometimes referred to as "aliased conditional expressions".
 
 
-import random
+import secrets
 
 
 class A:
@@ -26,7 +26,7 @@ def func1(x: A | B) -> None:
 def func2(x: A | B) -> None:
     is_a = isinstance(x, A)
 
-    if random.random() < 0.5:
+    if secrets.SystemRandom().random() < 0.5:
         x = B()
 
     if is_a:
@@ -45,7 +45,7 @@ def func3(x: int | None):
 
 
 def func4() -> A | None:
-    return A() if random.random() < 0.5 else None
+    return A() if secrets.SystemRandom().random() < 0.5 else None
 
 
 maybe_a1 = func4()
@@ -81,7 +81,7 @@ def func6(x: A | B) -> None:
         else:
             reveal_type(x, expected_text="A | B")
 
-        if random.random() < 0.5:
+        if secrets.SystemRandom().random() < 0.5:
             x = B()
 
 
